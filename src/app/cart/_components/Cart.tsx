@@ -73,8 +73,10 @@ export default function Cart() {
             {data?.data.products.map(prod => <ProductDetails key={prod._id} prod={prod}></ProductDetails>)}
           </tbody>
         </table>
-        <Button onClick={() => mutate()} className='block ml-auto cursor-pointer'>{isPending ? <i className='fa-solid fa-spin fa-spinner'></i> : 'Clear Cart'}</Button>
-        <Button asChild className='block ml-auto cursor-pointer my-2'>
+        <Button onClick={() => mutate()} className='block ml-auto cursor-pointer'>
+          {isPending ? <i className='fa-solid fa-spin fa-spinner'></i> : 'Clear Cart'}
+        </Button>
+        <Button asChild className='block ml-auto cursor-pointer w-fit my-2'>
           <Link href={`/checkOut/${data?.cartId}`}>Check Out</Link>
         </Button>
       </div>

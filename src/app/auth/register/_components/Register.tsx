@@ -5,6 +5,7 @@ import { Input } from '@/components/ui/input';
 import { registerSchema, registerSchemaForm } from '@/schema/register.schema';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form'
+import { toast } from 'react-toastify';
 
 export default function Register() {
   const form = useForm<registerSchemaForm>({
@@ -38,6 +39,8 @@ export default function Register() {
     const result = await res.json();
     console.log("Response result", result);
     form.reset();
+    toast.success(result.message);
+    window.location.href='/auth/login';
   }
   return (
     <>

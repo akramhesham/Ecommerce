@@ -30,6 +30,7 @@ export default function Login() {
     })
 
     if(res?.ok){
+      toast.success('Login successful');
       window.location.href=res?.url||''
     }else{
       toast.error(res?.error);
